@@ -85,7 +85,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/products?limit=<integer>&skip=<integer>",
+									"raw": "{{baseUrl}}/products?limit=1&skip=1",
 									"host": [
 										"{{baseUrl}}"
 									],
