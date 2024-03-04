@@ -2,7 +2,6 @@
 	"info": {
 		"_postman_id": "5426880f-a53b-4455-add5-687189d38b24",
 		"name": "test-mock API",
-		"description": "version=1.0.0-SNAPSHOT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17339584"
 	},
@@ -55,26 +54,22 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:60475/rest/test-mock+API/1.0.0-SNAPSHOT/products?limit=1&skip=1",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/products?limit=<integer>&skip=<integer>",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "60475",
 							"path": [
-								"rest",
-								"test-mock+API",
-								"1.0.0-SNAPSHOT",
 								"products"
 							],
 							"query": [
 								{
 									"key": "limit",
-									"value": "1"
+									"value": "<integer>",
+									"description": "(Required) "
 								},
 								{
 									"key": "skip",
-									"value": "1",
+									"value": "<integer>",
 									"description": "(Required) "
 								}
 							]
