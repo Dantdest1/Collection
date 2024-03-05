@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "3694e463-d130-4b6c-bc60-d97f218323d3",
+		"name": "products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17339584"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "/products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Request Params\", function() {\r",
+									"    var params = {};\r",
+									"    \r",
+									"    var limit = pm.request.url.query.get('limit');\r",
+									"    var skip = pm.request.url.query.get('skip');\r",
+									"\r",
+									"    pm.request.url.query.all().forEach((param) => { params[param.key] = Number(param.value)});\r",
+									"    pm.expect(params).to.have.property('limit');\r",
+									"    pm.expect(params).to.have.property('skip');\r",
+									"\r",
+									"    pm.expect(Number(limit)).within(1,100);\r",
+									"    pm.expect(Number(skip)).within(0, (100 - Number(limit)));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response code 200\", function (){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body structure\", function() {\r",
+									"    pm.response.to.have.jsonBody('products');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http:///products?limit={{limit}}&skip={{skip}}",
+							"protocol": "http",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "skip",
+									"value": "{{skip}}",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Genera una lista de productos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/products?limit=<integer>&skip=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "(Required) "
+										},
+										{
+											"key": "skip",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"products\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"price\": \"<double>\",\n      \"discountPercentage\": \"<double>\",\n      \"stock\": \"<integer>\",\n      \"brand\": \"<string>\",\n      \"category\": \"<string>\",\n      \"thumbnail\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"price\": \"<double>\",\n      \"discountPercentage\": \"<double>\",\n      \"stock\": \"<integer>\",\n      \"brand\": \"<string>\",\n      \"category\": \"<string>\",\n      \"thumbnail\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
