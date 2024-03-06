@@ -83,7 +83,7 @@
 									}
 								],
 								"url": {
-									"raw": "http:///products?limit={{limit}}&skip={{skip}}",
+									"raw": "http:///products?limit=1&skip=1",
 									"protocol": "http",
 									"path": [
 										"products"
