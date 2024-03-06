@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "31cf6bd0-76bb-4d79-9344-3520c17ea3e2",
-		"name": "test-mock API",
+		"name": "products",
 		"description": "version=1.0.0-SNAPSHOT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17339584"
