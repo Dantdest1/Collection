@@ -2,7 +2,6 @@
 	"info": {
 		"_postman_id": "3694e463-d130-4b6c-bc60-d97f218323d3",
 		"name": "products",
-		"description": "version=1.0.0-SNAPSHOT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "17339584"
 	},
@@ -83,7 +82,7 @@
 									}
 								],
 								"url": {
-									"raw": "http:///products?limit=1&skip=1",
+									"raw": "http:///products?limit={{limit}}&skip={{skip}}",
 									"protocol": "http",
 									"path": [
 										"products"
@@ -91,12 +90,12 @@
 									"query": [
 										{
 											"key": "limit",
-											"value": "1",
+											"value": "{{limit}}",
 											"description": "(Required) "
 										},
 										{
 											"key": "skip",
-											"value": "1",
+											"value": "{{skip}}",
 											"description": "(Required) "
 										}
 									]
