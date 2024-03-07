@@ -75,9 +75,6 @@ components:
         discountPercentage:
           format: double
           type: number
-        stock:
-          format: int32
-          type: integer
         brand:
           type: string
         category:
