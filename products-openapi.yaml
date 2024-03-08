@@ -6,51 +6,29 @@ paths:
   /products:
     get:
       tags:
-        - Rest Api
+      - Rest Api
       parameters:
-        - name: limit
-          in: query
-          required: true
-          schema:
-            format: int32
-            minimum: 0
-            type: integer
-          examples:
-            mock1:
-              value: 1
-        - name: skip
-          in: query
-          required: true
-          schema:
-            format: int32
-            minimum: 0
-            type: integer
-          examples:
-            mock1:
-              value: 1
+      - name: limit
+        in: query
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+      - name: skip
+        in: query
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
       responses:
         "200":
-          description: Genera una lista de productos
+          description: Genera una factura a partir de una lista de productos
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProductList'
-              examples:
-                mock1:
-                  value: |-
-                    {"products": [
-                      { "id": 2,
-                        "title": "iPhone X",
-                        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-                        "price": 899,
-                        "discountPercentage": 17.94,
-                        "rating": 4.44,
-                        "stock": 34,
-                        "brand": "Apple",
-                        "category": "smartphones",
-                        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-                      }
-                    ]}
 components:
   schemas:
     ProductList:
@@ -64,8 +42,7 @@ components:
       type: object
       properties:
         id:
-          format: int32
-          type: integer
+          type: string
         title:
           type: string
         description:
@@ -74,8 +51,7 @@ components:
           format: double
           type: number
         discountPercentage:
-          format: double
-          type: number
+          type: string
         stock:
           format: int32
           type: integer
@@ -85,10 +61,6 @@ components:
           type: string
         thumbnail:
           type: string
-      required:
-        - id
-        - stock
-        - brand
   securitySchemes:
     SecurityScheme:
       type: http
