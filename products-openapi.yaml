@@ -62,9 +62,12 @@ components:
             $ref: '#/components/schemas/Products'
     Products:
       type: object
+      required:  # List the required properties here
+        - stock
       properties:
         id:
-          type: string
+          format: int32
+          type: integer
         title:
           type: string
         description:
@@ -73,7 +76,8 @@ components:
           format: double
           type: number
         discountPercentage:
-          type: string
+          format: double
+          type: number
         stock:
           format: int32
           type: integer
