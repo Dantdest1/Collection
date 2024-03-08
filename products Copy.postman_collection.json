@@ -1,7 +1,8 @@
 {
 	"info": {
 		"_postman_id": "0a5b79bb-66db-4b83-8f4b-73adce3564c7",
-		"name": "products Copy",
+		"name": "products",
+		"description": "version=1.0.0-SNAPSHOT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "17339584"
 	},
