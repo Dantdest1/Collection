@@ -1,8 +1,7 @@
 {
 	"info": {
 		"_postman_id": "0a5b79bb-66db-4b83-8f4b-73adce3564c7",
-		"name": "products",
-		"description": "version=1.0.0-SNAPSHOT",
+		"name": "products Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "17339584"
 	},
@@ -39,11 +38,13 @@
 									"pm.test(\"Body structure and fields\", function() {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    var products = jsonData.products;\r",
+									"\r",
+									"\r",
 									"    pm.expect(jsonData).to.be.an(\"object\")\r",
 									"    pm.response.to.have.jsonBody('products');\r",
 									"\r",
 									"    pm.expect(products).to.be.an(\"array\")\r",
-									"    \r",
+									"    products.forEach(product => pm.expect(product.category).to.not.eql(\"unknown\",\"null\"))\r",
 									"\r",
 									"});\r",
 									""
@@ -61,16 +62,9 @@
 							}
 						],
 						"url": {
-							"raw": "http://test-mock-jeffersondberrios-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/products?limit=1&skip=1",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/products?limit=1&skip=1",
 							"host": [
-								"test-mock-jeffersondberrios-dev",
-								"apps",
-								"sandbox-m2",
-								"ll9k",
-								"p1",
-								"openshiftapps",
-								"com"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"products"
@@ -101,7 +95,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/products?limit=<integer>&skip=<integer>",
+									"raw": "{{baseUrl}}/products?limit=1&skip=1",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -111,12 +105,12 @@
 									"query": [
 										{
 											"key": "limit",
-											"value": "<integer>",
+											"value": "1",
 											"description": "(Required) "
 										},
 										{
 											"key": "skip",
-											"value": "<integer>",
+											"value": "1",
 											"description": "(Required) "
 										}
 									]
